@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring</title>
+    <script type="text/javascript" src="../../assets/js/vector.js"></script>
+    <script type="text/javascript" src="../../assets/js/particle.js"></script>
+    <script type="text/javascript" src="../../assets/js/utils.js"></script>
+    <script type="text/javascript" src="../../assets/js/getMousePos.js"></script>
+    <script type="text/javascript" src="spring1.js"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span><a
+            href="https://www.youtube.com/watch?v=JywnkK6Iuws&list=PL7wAPgl1JVvXBCTmnGwysy9OtR-5nOmz3&index=9&ab_channel=CodingMath">Reference part1</a></span>
+    <span><a
+            href="https://www.youtube.com/watch?v=jFG8MzvUTXg&list=PL7wAPgl1JVvXBCTmnGwysy9OtR-5nOmz3&index=10&ab_channel=CodingMath">Reference part2</a></span>
+    <span><a
+            href="https://www.youtube.com/watch?v=11ZmRlR7sOQ&list=PL7wAPgl1JVvXBCTmnGwysy9OtR-5nOmz3&index=5&ab_channel=CodingMath">Edge collision reference</a></span>
+    <br>
+    <div>
+        <span>The formula for Hooke's law is simply: f = kX</span>
+        <div>
+            <span>f = force</span>
+        </div>
+        <div>
+            <span>k = stiffness</span>
+        </div>
+        <div>
+            <span>X = distance</span>
+        </div>
+    </div>
+
+    <label for="initialVelocity">Initial velocity</label><input type="number" id="initialVelocity" value="50" min="0">
+    <label for="springLength">Spring length</label><input type="number" id="springLength" value="100" min="0">
+    <label for="gravity">Gravity</label><input type="number" id="gravity" value="0.5" min="0">
+    <label for="friction">Friction</label><input type="number" id="friction" value="0.9" max="0.999" min="0.001"
+                                                 step="0.1">
+    <label for="stiffness">Stiffness</label><input type="number" id="stiffness" value="0.1" max="0.999" min="0.001"
+                                                   step="0.1">
+    <button onclick="simulate()">Start</button>
+</div>
+
+<canvas id="canvas" style="width: 100%"></canvas>
+</body>
+</html>
