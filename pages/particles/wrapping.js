@@ -4,6 +4,7 @@ window.onload = function () {
 
 function simulate() {
     let amountParticle = +document.getElementById("amountParticle").value;
+    let randomColors = document.getElementById("randomColor").checked;
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -11,9 +12,12 @@ function simulate() {
         height = canvas.height = window.innerHeight,
         p = [];
 
-    for(let i = 0; i < amountParticle; i++) {
+    for (let i = 0; i < amountParticle; i++) {
         let newParticle = particle.create(width / 2, height / 2, 3, Math.random() * Math.PI * 2);
         newParticle.radius = 20;
+        if(randomColors) {
+            newParticle.color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
         p.push(newParticle);
     }
 
@@ -22,25 +26,26 @@ function simulate() {
     function update() {
         context.clearRect(0, 0, width, height);
 
-        for(let currenParticle of p) {
-            currenParticle.update();
+        for (let currentParticle of p) {
+            currentParticle.update();
 
+            context.fillStyle = currentParticle.color;
             context.beginPath();
-            context.arc(currenParticle.position.getX(), currenParticle.position.getY(), currenParticle.radius, 0, Math.PI * 2)
+            context.arc(currentParticle.position.getX(), currentParticle.position.getY(), currentParticle.radius, 0, Math.PI * 2)
             context.fill();
 
-            if(currenParticle.position.getX() - currenParticle.radius > width) {
-                currenParticle.position.setX(-currenParticle.radius);
+            if (currentParticle.position.getX() - currentParticle.radius > width) {
+                currentParticle.position.setX(-currentParticle.radius);
             }
-            if(currenParticle.position.getX() + currenParticle.radius < 0) {
-                currenParticle.position.setX(width + currenParticle.radius);
+            if (currentParticle.position.getX() + currentParticle.radius < 0) {
+                currentParticle.position.setX(width + currentParticle.radius);
             }
 
-            if(currenParticle.position.getY() - currenParticle.radius > height) {
-                currenParticle.position.setY(-currenParticle.radius);
+            if (currentParticle.position.getY() - currentParticle.radius > height) {
+                currentParticle.position.setY(-currentParticle.radius);
             }
-            if(currenParticle.position.getY() + currenParticle.radius < 0) {
-                currenParticle.position.setY(height + currenParticle.radius);
+            if (currentParticle.position.getY() + currentParticle.radius < 0) {
+                currentParticle.position.setY(height + currentParticle.radius);
             }
         }
 

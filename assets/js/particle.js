@@ -7,6 +7,7 @@ var particle = {
     bounce: -1,
     friction: 1,
     gravity: 0,
+    color: '#000000',
 
     create: function (x, y, speed, direction, grav) {
         var obj = Object.create(this);
