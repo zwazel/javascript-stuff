@@ -8,6 +8,7 @@ function simulate() {
     let myFriction = +document.getElementById("friction").value;
     let seperation = +document.getElementById("seperation").value;
     let gravity = +document.getElementById("gravity").value;
+    let bounceMultiplier = +document.getElementById("bounceMultiplier").value;
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -21,7 +22,7 @@ function simulate() {
             utils.randomRange(0, Math.PI * 2), gravity),
         particleC = particle.create(utils.randomRange(0, width),
             utils.randomRange(0, height), utils.randomRange(0, initialSpeed),
-            utils.randomRange(0, Math.PI * 2),gravity);
+            utils.randomRange(0, Math.PI * 2), gravity);
 
     particleA.friction = myFriction;
     particleA.radius = 20;
@@ -41,9 +42,9 @@ function simulate() {
         spring(particleB, particleC, seperation);
         spring(particleC, particleA, seperation);
 
-        particleA.doBounce(width, height);
-        particleB.doBounce(width, height);
-        particleC.doBounce(width, height);
+        particleA.doBounce(width, height, bounceMultiplier);
+        particleB.doBounce(width, height, bounceMultiplier);
+        particleC.doBounce(width, height, bounceMultiplier);
 
         particleA.update();
         particleB.update();
