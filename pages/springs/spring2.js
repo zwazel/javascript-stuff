@@ -41,6 +41,10 @@ function simulate() {
         spring(particleB, particleC, seperation);
         spring(particleC, particleA, seperation);
 
+        particleA.doBounce(width, height);
+        particleB.doBounce(width, height);
+        particleC.doBounce(width, height);
+
         particleA.update();
         particleB.update();
         particleC.update();

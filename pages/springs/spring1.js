@@ -8,6 +8,7 @@ function simulate() {
     let myFriction = +document.getElementById("friction").value;
     let springLength = +document.getElementById("springLength").value;
     let gravity = +document.getElementById("gravity").value;
+    let bounceMultiplier = +document.getElementById("bounceMultiplier").value;
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -23,7 +24,7 @@ function simulate() {
     canvas.addEventListener("mousemove", function (event) {
         let mousePos = getMousePosInCanvas(canvas, event);
 
-        springPoint.setX(mousePos.x);
+        springPoint.setX(event.x);
         springPoint.setY(mousePos.y);
     });
 
@@ -52,6 +53,8 @@ function simulate() {
         context.moveTo(weight.position.getX(), weight.position.getY());
         context.lineTo(springPoint.getX(), springPoint.getY());
         context.stroke();
+
+        weight.doBounce(width, height, bounceMultiplier);
 
         requestAnimationFrame(update);
     }
