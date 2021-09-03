@@ -15,9 +15,9 @@ function simulate() {
         p = [];
 
     for (let i = 0; i < amountParticle; i++) {
-        let newParticle = particle.create(width / 2, height, Math.random() * 8 + 5, -Math.PI / 2 + (Math.random()  * .2 - .1), gravity);
+        let newParticle = particle.create(width / 2, height, Math.random() * 8 + 5, -Math.PI / 2 + (Math.random() * .2 - .1), gravity);
         newParticle.radius = Math.random() * 10 + 2;
-        if(randomColors) {
+        if (randomColors) {
             newParticle.color = '#' + Math.floor(Math.random() * 16777215).toString(16);
         }
         p.push(newParticle);
@@ -37,7 +37,7 @@ function simulate() {
             context.fill();
 
             if (currentParticle.position.getY() - currentParticle.radius > height) {
-                if(emitAgain) {
+                if (emitAgain) {
                     currentParticle.position.setX(width / 2)
                     currentParticle.position.setY(height);
                     currentParticle.velocity.setLength(Math.random() * 8 + 5);
