@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Springs</title>
-    <script type="text/javascript" src="../assets/js/vector.js"></script>
-    <script type="text/javascript" src="../assets/js/particle.js"></script>
-    <script type="text/javascript" src="../assets/js/utils.js"></script>
+    <script type="text/javascript" src="../../assets/js/vector.js"></script>
+    <script type="text/javascript" src="../../assets/js/particle.js"></script>
+    <script type="text/javascript" src="../../assets/js/utils.js"></script>
+    <script type="text/javascript" src="../../assets/js/getMousePos.js"></script>
     <script type="text/javascript" src="spring.js"></script>
     <style type="text/css">
         html, body {
@@ -39,8 +40,12 @@
     </div>
 
     <label for="initialVelocity">Initial velocity</label><input type="number" id="initialVelocity" value="50" min="0">
-    <label for="friction">Friction</label><input type="number" id="friction" value="0.9" max="0.999" min="0.001" step="0.1">
-    <label for="stiffness">Stiffness</label><input type="number" id="stiffness" value="0.1" max="0.999" min="0.001" step="0.1">
+    <label for="springLength">Spring length</label><input type="number" id="springLength" value="100" min="0">
+    <label for="gravity">Gravity</label><input type="number" id="gravity" value="0.5" min="0">
+    <label for="friction">Friction</label><input type="number" id="friction" value="0.9" max="0.999" min="0.001"
+                                                 step="0.1">
+    <label for="stiffness">Stiffness</label><input type="number" id="stiffness" value="0.1" max="0.999" min="0.001"
+                                                   step="0.1">
     <button onclick="simulate()">Start</button>
 </div>
 

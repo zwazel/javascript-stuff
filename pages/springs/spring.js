@@ -6,6 +6,8 @@ function simulate() {
     let initialSpeed = +document.getElementById("initialVelocity").value;
     let k = +document.getElementById("stiffness").value;
     let myFriction = +document.getElementById("friction").value;
+    let springLength = +document.getElementById("springLength").value;
+    let gravity = +document.getElementById("gravity").value;
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -13,10 +15,7 @@ function simulate() {
         height = canvas.height = window.innerHeight,
         springPoint = vector.create(width / 2, height / 2),
         weight = particle.create(Math.random() * width, Math.random() * height,
-            initialSpeed, Math.random() * Math.PI * 2);
-
-    console.log("width = " + width)
-    console.log("height = " + height)
+            initialSpeed, Math.random() * Math.PI * 2, gravity);
 
     weight.radius = 20;
     weight.friction = myFriction;
@@ -33,8 +32,9 @@ function simulate() {
     function update() {
         context.clearRect(0, 0, width, height);
 
-        let distance = springPoint.subtract(weight.position),
-            springForce = distance.multiply(k);
+        let distance = springPoint.subtract(weight.position);
+        distance.setLength(distance.getLength() - springLength);
+        let springForce = distance.multiply(k);
 
         weight.velocity.addTo(springForce);
 
@@ -54,13 +54,5 @@ function simulate() {
         context.stroke();
 
         requestAnimationFrame(update);
-    }
-
-    function getMousePosInCanvas(canvas, evt) {
-        let rect = canvas.getBoundingClientRect();
-        return {
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        };
     }
 }
