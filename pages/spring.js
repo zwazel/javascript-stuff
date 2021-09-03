@@ -3,20 +3,23 @@ window.onload = function () {
 }
 
 function simulate() {
+    let initialSpeed = +document.getElementById("initialVelocity").value;
+    let k = +document.getElementById("stiffness").value;
+    let myFriction = +document.getElementById("friction").value;
+
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
         width = canvas.width = window.innerWidth,
         height = canvas.height = window.innerHeight,
         springPoint = vector.create(width / 2, height / 2),
         weight = particle.create(Math.random() * width, Math.random() * height,
-            50, Math.random() * Math.PI * 2),
-        k = 0.1;
+            initialSpeed, Math.random() * Math.PI * 2);
 
     console.log("width = " + width)
     console.log("height = " + height)
 
     weight.radius = 20;
-    weight.friction = 0.9;
+    weight.friction = myFriction;
 
     canvas.addEventListener("mousemove", function (event) {
         let mousePos = getMousePosInCanvas(canvas, event);
