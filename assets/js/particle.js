@@ -74,18 +74,46 @@ var particle = {
             this.velocity.setY(this.velocity.getY() * this.bounce);
         }
     },
-    
+
     doWrap: function (width, height) {
+        // left edge
         if (this.position.getX() - this.radius > width) {
             this.position.setX(-this.radius);
         }
+
+        // right edge
         if (this.position.getX() + this.radius < 0) {
             this.position.setX(width + this.radius);
         }
 
+        // bottom edge
         if (this.position.getY() - this.radius > height) {
             this.position.setY(-this.radius);
         }
+
+        // top edge
+        if (this.position.getY() + this.radius < 0) {
+            this.position.setY(height + this.radius);
+        }
+    },
+
+    doCollide: function (width, height) {
+        // left edge
+        if (this.position.getX() - this.radius > width) {
+            this.position.setX(-this.radius);
+        }
+
+        // right edge
+        if (this.position.getX() + this.radius < 0) {
+            this.position.setX(width + this.radius);
+        }
+
+        // bottom edge
+        if (this.position.getY() - this.radius > height) {
+            this.position.setY(-this.radius);
+        }
+
+        // top edge
         if (this.position.getY() + this.radius < 0) {
             this.position.setY(height + this.radius);
         }
