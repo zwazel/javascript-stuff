@@ -49,29 +49,29 @@ var particle = {
         this.velocity.addTo(grav);
     },
 
-    doBounce: function (width, height) {
+    doBounce: function (width, height, bounceMultiplier = 1) {
         // left edge
         if (this.position.getX() + this.radius > width) {
             this.position.setX(width - this.radius);
-            this.velocity.setX(this.velocity.getX() * this.bounce);
+            this.velocity.setX(this.velocity.getX() * (this.bounce * bounceMultiplier));
         }
 
         // right edge
         if (this.position.getX() - this.radius < 0) {
             this.position.setX(this.radius);
-            this.velocity.setX(this.velocity.getX() * this.bounce);
+            this.velocity.setX(this.velocity.getX() * (this.bounce * bounceMultiplier));
         }
 
         // bottom edge
         if (this.position.getY() + this.radius > height) {
             this.position.setY(height - this.radius);
-            this.velocity.setY(this.velocity.getY() * this.bounce);
+            this.velocity.setY(this.velocity.getY() * (this.bounce * bounceMultiplier));
         }
 
         // top edge
         if (this.position.getY() - this.radius < 0) {
             this.position.setY(this.radius);
-            this.velocity.setY(this.velocity.getY() * this.bounce);
+            this.velocity.setY(this.velocity.getY() * (this.bounce * bounceMultiplier));
         }
     },
 
@@ -99,23 +99,23 @@ var particle = {
 
     doCollide: function (width, height) {
         // left edge
-        if (this.position.getX() - this.radius > width) {
-            this.position.setX(-this.radius);
+        if (this.position.getX() + this.radius > width) {
+            this.velocity.setX(0);
         }
 
         // right edge
-        if (this.position.getX() + this.radius < 0) {
-            this.position.setX(width + this.radius);
+        if (this.position.getX() - this.radius < 0) {
+            this.velocity.setX(0);
         }
 
         // bottom edge
-        if (this.position.getY() - this.radius > height) {
-            this.position.setY(-this.radius);
+        if (this.position.getY() + this.radius > height) {
+            this.velocity.setY(0);
         }
 
         // top edge
-        if (this.position.getY() + this.radius < 0) {
-            this.position.setY(height + this.radius);
+        if (this.position.getY() - this.radius < 0) {
+            this.velocity.setY(0);
         }
     }
 };
