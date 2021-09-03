@@ -34,19 +34,7 @@ function simulate() {
             context.arc(currentParticle.position.getX(), currentParticle.position.getY(), currentParticle.radius, 0, Math.PI * 2)
             context.fill();
 
-            if (currentParticle.position.getX() - currentParticle.radius > width) {
-                currentParticle.position.setX(-currentParticle.radius);
-            }
-            if (currentParticle.position.getX() + currentParticle.radius < 0) {
-                currentParticle.position.setX(width + currentParticle.radius);
-            }
-
-            if (currentParticle.position.getY() - currentParticle.radius > height) {
-                currentParticle.position.setY(-currentParticle.radius);
-            }
-            if (currentParticle.position.getY() + currentParticle.radius < 0) {
-                currentParticle.position.setY(height + currentParticle.radius);
-            }
+            currentParticle.doWrap(width, height);
         }
 
         requestAnimationFrame(update);

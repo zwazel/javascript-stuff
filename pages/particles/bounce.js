@@ -39,31 +39,7 @@ function simulate() {
             context.arc(currentParticle.position.getX(), currentParticle.position.getY(), currentParticle.radius, 0, Math.PI * 2)
             context.fill();
 
-            let currentBounce = currentParticle.bounce;
-
-            // left edge
-            if (currentParticle.position.getX() + currentParticle.radius > width) {
-                currentParticle.position.setX(width - currentParticle.radius);
-                currentParticle.velocity.setX(currentParticle.velocity.getX() * currentBounce);
-            }
-
-            // right edge
-            if (currentParticle.position.getX() - currentParticle.radius < 0) {
-                currentParticle.position.setX(currentParticle.radius);
-                currentParticle.velocity.setX(currentParticle.velocity.getX() * currentBounce);
-            }
-
-            // bottom edge
-            if (currentParticle.position.getY() + currentParticle.radius > height) {
-                currentParticle.position.setY(height - currentParticle.radius);
-                currentParticle.velocity.setY(currentParticle.velocity.getY() * currentBounce);
-            }
-
-            // top edge
-            if (currentParticle.position.getY() - currentParticle.radius < 0) {
-                currentParticle.position.setY(currentParticle.radius);
-                currentParticle.velocity.setY(currentParticle.velocity.getY() * currentBounce);
-            }
+            currentParticle.doBounce(width, height);
         }
 
         requestAnimationFrame(update);

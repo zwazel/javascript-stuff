@@ -47,5 +47,47 @@ var particle = {
         grav.setLength(p2.mass / (dist * dist));
         grav.setAngle(this.angleTo(p2));
         this.velocity.addTo(grav);
+    },
+
+    doBounce: function (width, height) {
+        // left edge
+        if (this.position.getX() + this.radius > width) {
+            this.position.setX(width - this.radius);
+            this.velocity.setX(this.velocity.getX() * this.bounce);
+        }
+
+        // right edge
+        if (this.position.getX() - this.radius < 0) {
+            this.position.setX(this.radius);
+            this.velocity.setX(this.velocity.getX() * this.bounce);
+        }
+
+        // bottom edge
+        if (this.position.getY() + this.radius > height) {
+            this.position.setY(height - this.radius);
+            this.velocity.setY(this.velocity.getY() * this.bounce);
+        }
+
+        // top edge
+        if (this.position.getY() - this.radius < 0) {
+            this.position.setY(this.radius);
+            this.velocity.setY(this.velocity.getY() * this.bounce);
+        }
+    },
+    
+    doWrap: function (width, height) {
+        if (this.position.getX() - this.radius > width) {
+            this.position.setX(-this.radius);
+        }
+        if (this.position.getX() + this.radius < 0) {
+            this.position.setX(width + this.radius);
+        }
+
+        if (this.position.getY() - this.radius > height) {
+            this.position.setY(-this.radius);
+        }
+        if (this.position.getY() + this.radius < 0) {
+            this.position.setY(height + this.radius);
+        }
     }
 };
