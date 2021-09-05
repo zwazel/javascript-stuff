@@ -1,11 +1,12 @@
+let canvas = document.getElementById("canvas"),
+    context = canvas.getContext("2d");
+
 window.onload = function () {
     simulate();
 }
 
 function simulate() {
-    let canvas = document.getElementById("canvas"),
-        context = canvas.getContext("2d"),
-        width = canvas.width = window.innerWidth,
+    let width = canvas.width = window.innerWidth,
         height = canvas.height = window.innerHeight;
 
     update();
@@ -13,6 +14,6 @@ function simulate() {
     function update() {
         context.clearRect(0, 0, width, height);
 
-        requestAnimationFrame();
+        requestAnimationFrame(update);
     }
-};
+}
