@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Collide Particle</title>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
-    <script type="text/javascript" src="../../assets/js/vector.js"></script>
-    <script type="text/javascript" src="../../assets/js/particle.js"></script>
-    <script type="text/javascript" src="../../assets/js/utils.js"></script>
-    <script type="text/javascript" src="../../assets/js/getMousePos.js"></script>
-    <script type="text/javascript" src="collide.js"></script>
+    <title>Bounce Particle</title>
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/styles.css">
+    <script type="text/javascript" src="../../../assets/js/vector.js"></script>
+    <script type="text/javascript" src="../../../assets/js/particle.js"></script>
+    <script type="text/javascript" src="../../../assets/js/utils.js"></script>
+    <script type="text/javascript" src="../../../assets/js/getMousePos.js"></script>
+    <script type="text/javascript" src="bounce.js"></script>
     <style type="text/css">
         html, body {
             margin: 0;
@@ -20,13 +20,20 @@
     </style>
 </head>
 <body>
+<nav>
+    <ul>
+        <li>
+            <a href="https://youtu.be/11ZmRlR7sOQ?list=PL7wAPgl1JVvXBCTmnGwysy9OtR-5nOmz3&t=489"
+               target="_blank">Bounce reference</a>
+        </li>
+    </ul>
+</nav>
 <div>
     <label for="randomColor">Random colors?</label><input type="checkbox" id="randomColor" checked>
     <label for="amountParticle">Amount particle</label><input type="number" id="amountParticle" value="1">
     <label for="gravity">Gravity</label><input type="number" id="gravity" value="0">
     <label for="energyLoss">Energy loss</label><input type="number" id="energyLoss" value="0.9">
     <label for="friction">Friction</label><input type="number" id="friction" value="1">
-    <label for="bounceMultiplier">Bounce multiplier</label><input type="number" id="bounceMultiplier" value="0">
     <button onclick="simulate()">Start</button>
 </div>
 <canvas id="canvas"></canvas>

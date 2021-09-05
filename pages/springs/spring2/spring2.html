@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Spring</title>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
-    <script type="text/javascript" src="../../assets/js/vector.js"></script>
-    <script type="text/javascript" src="../../assets/js/particle.js"></script>
-    <script type="text/javascript" src="../../assets/js/utils.js"></script>
-    <script type="text/javascript" src="../../assets/js/getMousePos.js"></script>
-    <script type="text/javascript" src="spring1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/styles.css">
+    <script type="text/javascript" src="../../../assets/js/vector.js"></script>
+    <script type="text/javascript" src="../../../assets/js/particle.js"></script>
+    <script type="text/javascript" src="../../../assets/js/utils.js"></script>
+    <script type="text/javascript" src="../../../assets/js/getMousePos.js"></script>
+    <script type="text/javascript" src="spring2.js"></script>
     <style type="text/css">
         html, body {
             margin: 0;
@@ -37,6 +37,7 @@
             </li>
         </ul>
     </nav>
+
     <div>
         <span>The formula for Hooke's law is simply: f = kX</span>
         <div>
@@ -51,11 +52,11 @@
     </div>
 
     <label for="initialVelocity">Initial velocity</label><input type="number" id="initialVelocity" value="50" min="0">
-    <label for="springLength">Spring length</label><input type="number" id="springLength" value="100" min="0">
-    <label for="gravity">Gravity</label><input type="number" id="gravity" value="0.5" min="0">
+    <label for="seperation">Seperation</label><input type="number" id="seperation" value="100" min="0">
+    <label for="gravity">Gravity</label><input type="number" id="gravity" value="0" min="0">
     <label for="friction">Friction</label><input type="number" id="friction" value="0.9" max="0.999" min="0.001"
                                                  step="0.1">
-    <label for="stiffness">Stiffness</label><input type="number" id="stiffness" value="0.1" max="0.999" min="0.001"
+    <label for="stiffness">Stiffness</label><input type="number" id="stiffness" value="0.01" max="0.999" min="0.001"
                                                    step="0.1">
     <label for="bounceMultiplier">Bounce multiplier</label><input type="number" id="bounceMultiplier" value="1">
     <button onclick="simulate()">Start</button>
