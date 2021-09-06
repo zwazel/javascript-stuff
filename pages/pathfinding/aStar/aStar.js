@@ -6,7 +6,7 @@ window.onload = function () {
 }
 
 function simulate() {
-        let width = myCanvas.width = window.innerWidth,
+    let width = myCanvas.width = window.innerWidth,
         height = myCanvas.height = window.innerHeight;
 
     update();
