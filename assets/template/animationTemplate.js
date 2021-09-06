@@ -6,8 +6,8 @@ window.onload = function () {
 }
 
 function simulate() {
-    let width = canvas.width = window.innerWidth,
-        height = canvas.height = window.innerHeight;
+    let width = canvas.width = 640,
+        height = canvas.height = 480;
 
     update();
 

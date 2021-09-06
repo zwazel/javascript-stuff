@@ -8,8 +8,8 @@ function simulate() {
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
-        width = canvas.width = window.innerWidth,
-        height = canvas.height = window.innerHeight,
+        width = canvas.width = 640,
+        height = canvas.height = 480,
         p = [];
 
     for (let i = 0; i < amountParticle; i++) {

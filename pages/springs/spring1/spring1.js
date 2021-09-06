@@ -12,8 +12,8 @@ function simulate() {
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
-        width = canvas.width = window.innerWidth,
-        height = canvas.height = window.innerHeight,
+        width = canvas.width = 640,
+        height = canvas.height = 480,
         springPoint = vector.create(width / 2, height / 2),
         weight = particle.create(Math.random() * width, Math.random() * height,
             initialSpeed, Math.random() * Math.PI * 2, gravity);

@@ -12,8 +12,8 @@ function simulate() {
 
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
-        width = canvas.width = window.innerWidth,
-        height = canvas.height = window.innerHeight,
+        width = canvas.width = 640,
+        height = canvas.height = 480,
         particleA = particle.create(utils.randomRange(0, width),
             utils.randomRange(0, height), utils.randomRange(0, initialSpeed),
             utils.randomRange(0, Math.PI * 2), gravity),
