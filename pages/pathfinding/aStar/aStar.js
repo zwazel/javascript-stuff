@@ -5,6 +5,8 @@ window.onload = function () {
     simulate();
 }
 
+// Explanation of algorithm: https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
+
 function simulate() {
     let width = canvas.width = 640,
         height = canvas.height = 480;
