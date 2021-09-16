@@ -18,12 +18,11 @@ ul {
 ul li {
     width: 2em;
     height: 2em;
-    margin: 5px;
+    margin: 2px;
 }
 
 .dot {
     background: #ccc;
-    border-radius: 50%;
     cursor: pointer;
     transition: background-color 2s, border-radius 1s;
 }

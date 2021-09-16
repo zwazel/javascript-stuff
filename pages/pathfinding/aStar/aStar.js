@@ -20,10 +20,8 @@ function createGrid() {
     }
 
     $('.dot').mouseenter(function () {
-        $(this).css({borderRadius: 0});
         $(this).css({background: '#20B2AA'});
     }).click(function () {
-        $(this).css({borderRadius: '50%'});
         $(this).css({background: '#66CDAA'});
     });
 }
