@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 .wrapper {
     margin-left: 20%;
     margin-top: 2em;
@@ -26,58 +25,7 @@ ul li {
     background: #ccc;
     border-radius: 50%;
     cursor: pointer;
-    -webkit-transition: all 1.5s ease;
-    -moz-transition: all 1.5s ease;
-    -o-transition: all 1.5s ease;
-    transition: all 1.5s ease;
-}
-
-.quadrado {
-    background: #000;
-    border-radius: 0;
-}
-
-body {
-    background: #fff;
-    animation: bgfade 5s;
-    -webkit-animation: bgfade 5s; /* Safari and Chrome */
-}
-
-@keyframes bgfade {
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 0.25;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    75% {
-        opacity: 0.75;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes bgfade /* Safari and Chrome */
-{
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 0.25;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    75% {
-        opacity: 0.75;
-    }
-    100% {
-        opacity: 1;
-    }
+    transition: background-color 2s, border-radius 1s;
 }
 
 canvas {
