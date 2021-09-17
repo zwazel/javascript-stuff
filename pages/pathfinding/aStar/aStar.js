@@ -13,7 +13,7 @@ class blockType {
     _square;
     _description;
 
-    constructor(myColor = '000000', square = true, description = 'undefined') {
+    constructor(myColor = 'FFFFFF', square = true, description = 'undefined') {
         this._myColor = myColor;
         this._square = square;
         this._description = description;
@@ -45,7 +45,7 @@ class blockType {
 
     toHTML() {
         let div = document.createElement('div');
-        div.classList.add('blockType', this.description);
+        div.classList.add('blockType', this.description, 'withBorder');
         let spanDesc = document.createElement('span');
         spanDesc.classList.add('description');
         spanDesc.innerText = this.description;
@@ -56,10 +56,11 @@ class blockType {
 }
 
 function initBlockTypes() {
-    let wall = new blockType();
+    let wall = new blockType('000000',true, 'Wall');
     let start = new blockType('71eb34', false, 'start');
+    let nothing = new blockType();
 
-    blockTypeContainer.append(wall.toHTML(), start.toHTML());
+    blockTypeContainer.append(wall.toHTML(), start.toHTML(), nothing.toHTML());
 }
 
 function createGrid() {

@@ -27,7 +27,32 @@ ul li {
     transition: background-color 2s, border-radius 1s;
 }
 
+#blockTypeContainer {
+    display: flex;
+}
+
+.blockType {
+    flex-basis: 100px;
+    height: 100px;
+    margin: 5px;
+
+    position: relative;
+    color: white;
+}
+
+.description {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
 canvas {
     display: block;
+    border: 1px solid black;
+}
+
+.withBorder {
     border: 1px solid black;
 }
